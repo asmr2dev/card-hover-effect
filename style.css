@@ -1,0 +1,75 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --image-header-background: #353333;
+    --image-header-color: #898484;
+    --card-background: #ffffff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right bottom, rgb(154, 1, 1), rgb(3, 3, 154));
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card {
+    width: calc(100%/3);
+    position: relative;
+    margin: 5rem;
+    background-color: var(--card-background);
+    transform: translateY(-100px);
+}
+
+.card .header {
+    background-color: var(--image-header-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: background-color .5s ease-in-out;
+}
+
+.card .header ion-icon {
+    font-size: 5rem;
+    width: 100%;
+    padding: 2rem 0;
+    pointer-events: none;
+}
+
+.card .header span {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.card .header ion-icon, .card .header span {
+    color: var(--image-header-color);
+    transition: color .5s ease-in-out;
+}
+
+.card p {
+    text-align: center;
+    position: absolute;
+    padding: 2rem;
+    background-color: white;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    transform-origin: top;
+}
+
+.card:hover {
+    --image-header-background: #002eb7;
+    --image-header-color: #fff;
+}
+
+.card:hover p {
+    transform: scaleY(1);
+    opacity: 1;
+}
